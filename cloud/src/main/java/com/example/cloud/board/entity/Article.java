@@ -14,8 +14,8 @@ import javax.persistence.*;
 @Component
 @Entity
 @Table(name = "articles")
-@AllArgsConstructor
-@NoArgsConstructor
+//@AllArgsConstructor
+//@NoArgsConstructor
 public class Article {
     @Id
     @Column(name = "article_id")

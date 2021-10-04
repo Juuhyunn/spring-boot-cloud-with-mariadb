@@ -23,7 +23,7 @@ public class User {
     @GeneratedValue
     private long userId;
     @Column @NotNull private String username;
-    @Column @NotNull private String password;
+
     @Column @NotNull private String name;
     @Column @NotNull private String email;
     @Column(name = "reg_date") @NotNull private String regDate;
