@@ -1,0 +1,6 @@
+export { default as UserAdd } from ''
+export { default as UserDetail } from '/components/UserDetail'
+export { default as UserList } from '/components/UserList'
+export { default as UserLogin } from '/components/UserLogin'
+export { default as UserModify } from '/components/UserModify'
+export { default as UserRemove } from '/components/UserRemove'
