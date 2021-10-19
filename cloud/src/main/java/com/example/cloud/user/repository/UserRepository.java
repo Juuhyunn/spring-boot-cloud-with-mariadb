@@ -12,7 +12,7 @@ import javax.transaction.Transactional;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
     @Transactional
-    @Query(value = "select user_id, email, name, password, reg_date, username from users where users.username=:username and users.password=:password", nativeQuery = true)
+    @Query(value = "select * from users where users.username=:username and users.password=:password", nativeQuery = true)
 //    @Query(value = "select username, password from users where users.username=:username and users.password=:password", nativeQuery = true)
     User login(@Param("username") String username, @Param("password") String password);
 }
