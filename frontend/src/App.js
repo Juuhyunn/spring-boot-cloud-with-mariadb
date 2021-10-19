@@ -1,6 +1,6 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
+// import logo from './logo.svg';
+// import { Counter } from './features/counter/Counter';
 import './App.css';
 import { Route, Redirect, Switch } from 'react-router-dom'
 import { Home, Navigation } from './features/common/index';

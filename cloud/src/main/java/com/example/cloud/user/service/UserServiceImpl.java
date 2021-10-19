@@ -1,6 +1,7 @@
 package com.example.cloud.user.service;
 
 import com.example.cloud.user.entity.User;
+import com.example.cloud.user.entity.UserDto;
 import com.example.cloud.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,5 +15,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findById(long userId) {
         return userRepository.findById(userId);
+    }
+
+    @Override
+    public User login(String username, String password) {
+        return userRepository.login(username, password);
     }
 }

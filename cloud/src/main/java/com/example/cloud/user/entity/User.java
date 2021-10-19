@@ -22,12 +22,12 @@ public class User {
     @Column(name = "user_id")
     @GeneratedValue
     private long userId;
-    @Column @NotNull private String username;
-
-    @Column @NotNull private String name;
-    @Column @NotNull private String email;
+    @Column private @NotNull String username;
+    @Column private @NotNull String password;
+    @Column private @NotNull String name;
+    @Column private @NotNull String email;
     @Column(name = "reg_date") @NotNull private String regDate;
-    @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "user")
     private List<Article> articleList = new ArrayList<>();
 
 }

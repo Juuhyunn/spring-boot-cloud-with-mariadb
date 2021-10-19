@@ -1,2 +1,2 @@
-export { default as Home } from '/components/Home' 
-export { default as Navigation } from '/components/Navigation'
+export { Home } from 'features/common/components/Home' 
+export { Navigation } from 'features/common/components/Navigation'
