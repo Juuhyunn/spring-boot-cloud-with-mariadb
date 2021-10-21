@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import { useHistory } from 'react-router';
 
 export function UserLogin() {
+  const history = useHistory()
   const SERVER = 'http://localhost:8080'
   const [login, setLogin] = useState({})
   const {username, password} = login
@@ -21,6 +23,7 @@ export function UserLogin() {
     userLogin(loginRequest)
     .then(res => {
       alert('로그인 성공 : ' + res)
+      history.push('/users/detail')
     })
     .catch(err => {
       alert('로그인 실패 : ' + err)

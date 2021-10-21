@@ -32,7 +32,7 @@ public class UserController implements CommonController<User, Long> {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @GetMapping("/id/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<UserDto> findById(@PathVariable long id){
         System.out.println("=======================");
         User user = userService.findById(id).get();
