@@ -22,7 +22,8 @@ export function UserLogin() {
     // axios.post(`http://localhost:8080/users/login`, JSON.stringify({username:'a', password:'b'}))
     userLogin(loginRequest)
     .then(res => {
-      alert('로그인 성공 : ' + res)
+      alert('로그인 성공 : ' + res.data.userId)
+      localStorage.setItem('sessionUser', JSON.stringify(res.data))
       history.push('/users/detail')
     })
     .catch(err => {

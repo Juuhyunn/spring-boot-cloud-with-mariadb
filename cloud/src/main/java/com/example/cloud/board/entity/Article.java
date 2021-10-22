@@ -19,7 +19,7 @@ import javax.persistence.*;
 public class Article {
     @Id
     @Column(name = "article_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long boardId;
     @Column @NotNull String title;
     @Column @NotNull String content;

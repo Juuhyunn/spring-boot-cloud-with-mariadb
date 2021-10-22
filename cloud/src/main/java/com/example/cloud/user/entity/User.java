@@ -5,6 +5,7 @@ import com.sun.istack.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.Proxy;
 import org.springframework.stereotype.Component;
 
 import javax.persistence.*;
@@ -15,12 +16,13 @@ import java.util.List;
 @Entity
 @Table(name = "users")
 @Component
+@Proxy(lazy = false)
 @NoArgsConstructor
 @AllArgsConstructor
 public class User {
     @Id
     @Column(name = "user_id")
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)     // PK 일련번호를 만들어주기 위함
     private long userId;
     @Column private @NotNull String username;
     @Column private @NotNull String password;
@@ -29,5 +31,4 @@ public class User {
     @Column(name = "reg_date") @NotNull private String regDate;
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Article> articleList = new ArrayList<>();
-
 }

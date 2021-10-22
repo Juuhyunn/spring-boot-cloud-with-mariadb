@@ -8,11 +8,12 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
 import javax.transaction.Transactional;
+import java.util.Optional;
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long>{
     @Transactional
     @Query(value = "select * from users where users.username=:username and users.password=:password", nativeQuery = true)
 //    @Query(value = "select username, password from users where users.username=:username and users.password=:password", nativeQuery = true)
-    User login(@Param("username") String username, @Param("password") String password);
+    Optional<User> login(@Param("username") String username, @Param("password") String password);
 }

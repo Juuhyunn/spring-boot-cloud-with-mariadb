@@ -5,7 +5,7 @@ import axios from 'axios';
 export function UserDetail() {
     const SERVER = 'http://localhost:8080'
     const history = useHistory()
-    const [detail, setDetail] = useState()
+    const [detail, setDetail] = useState({})
     const fetchOne = () => {
         const sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
         alert('사용자 아이디 : ' + sessionUser.userId)
@@ -27,33 +27,42 @@ export function UserDetail() {
     
     return (
         <div>
-             <h1>회원 정보</h1>
-            <ul>
-                <li>
-                    <label>
-                        <span>아이디 : </span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <span>이메일 : </span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <span>비밀번호 : ******* </span>
-                    </label>
-                </li>
-                <li>
-                    <label>
-                        <span>이름 : </span>
-                    </label>
-                </li>
-                <li>
-                    <input type="submit" value="회원가입"/>
-                </li>
+        <h1>회원정보</h1>
     
-            </ul>
-        </div>
+        <ul>
+            <li>
+                <label>
+                    <span>회원번호 : {detail.userId} </span>
+                </label>
+                
+            </li>
+            <li>
+                <label>
+                    <span>아이디 : {detail.username} </span>
+                </label>
+                
+            </li>
+            <li>
+                <label>
+                <span>이메일 :  {detail.email}  </span>
+                </label>
+            </li>
+            <li>
+                <label>
+                    <span>비밀 번호 :  *******  </span>
+                </label>
+            </li>
+            <li>
+                <label>
+                <span>이름 : {detail.name} </span>
+                </label>
+            </li>
+            <li>
+                <input type="button" value="회원정보수정" onClick={() => history.push("/users/modify")}/>
+            </li>
+
+        </ul>
+   
+    </div>
       );
 }
