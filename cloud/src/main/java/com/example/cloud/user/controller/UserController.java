@@ -77,8 +77,10 @@ public class UserController implements CommonController<User, Long> {
         return ResponseEntity.ok(userRepository.count());
     }
 
+    @DeleteMapping("/{id}")
     @Override
-    public ResponseEntity<String> deleteById(Long id) {
+    public ResponseEntity<String> deleteById(@PathVariable Long id) {
+        System.out.println(id);
         userRepository.deleteById(id);
         return ResponseEntity.ok("Success!");
     }

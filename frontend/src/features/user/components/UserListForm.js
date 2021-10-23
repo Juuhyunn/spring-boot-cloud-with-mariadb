@@ -2,13 +2,14 @@ import React from "react";
 
 const UserListForm = ({list}) => {
     return (<>
-    <table>
+    {/* <table style={{border:'1px soild black'}}> */}
+    <table border='1px' style={{textAlign:'center'}}>
     <thead>
         <tr>
-            <td>사용자 번호</td>
-            <td>사용자 아이디</td>
-            <td>사용자 이름</td>
-            <td>사용자 이메일</td>
+            <th>사용자 번호</th>
+            <th>사용자 아이디</th>
+            <th>사용자 이름</th>
+            <th>사용자 이메일</th>
         </tr>   
     </thead>
     <tbody>
