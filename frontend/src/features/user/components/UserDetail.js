@@ -28,8 +28,6 @@ export function UserDetail() {
         localStorage.setItem('sessionUser', '')
         history.push('users/list')
     }
-
-    
     return (
         <div>
         <h1>회원정보</h1>
