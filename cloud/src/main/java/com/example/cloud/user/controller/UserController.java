@@ -26,10 +26,10 @@ public class UserController implements CommonController<User, Long> {
 
     @PostMapping("/login")
     public ResponseEntity<User> login(@RequestBody User user){
-        Optional<User> returnUser = userService.login(user.getUsername(), user.getPassword());
-        System.out.println("로그인 :: 리액트에서 넘어온 정보 : " + user.toString());
-        System.out.println("로그인 :: 디비 갔다온애 : " + returnUser.get().toString());
-        return ResponseEntity.ok(returnUser.get());
+//        Optional<User> returnUser = userService.login(user.getUsername(), user.getPassword());
+//        System.out.println("로그인 :: 리액트에서 넘어온 정보 : " + user.toString());
+//        System.out.println("로그인 :: 디비 갔다온애 : " + returnUser.get().toString());
+        return ResponseEntity.ok(userService.login(user.getUsername(), user.getPassword()).orElse(new User()));
     }
 
     @GetMapping("/{id}")

@@ -22,12 +22,22 @@ export function UserLogin() {
     // axios.post(`http://localhost:8080/users/login`, JSON.stringify({username:'a', password:'b'}))
     userLogin(loginRequest)
     .then(res => {
-      alert('로그인 성공 : ' + res.data.userId)
-      localStorage.setItem('sessionUser', JSON.stringify(res.data))
+      const user = res.data
+      if(user.userId != 0) {
+      alert('로그인 성공 : ' + user.userId)
+      localStorage.setItem('sessionUser', JSON.stringify(user))
       history.push('/users/detail')
+      }else{
+      alert('로그인 실패 : 아이디 또는 비밀번호를 확인해주세요.')
+      document.getElementById('username').value = ''
+      document.getElementById('password').value = ''
+    }
+      
     })
     .catch(err => {
-      alert('로그인 실패 : ' + err)
+      alert('접속 실패 : ' + err)
+      document.getElementById('username').value = ''
+      document.getElementById('password').value = ''
     })
   }
   const userLogin = loginRequest => axios.post(`${SERVER}/users/login`, JSON.stringify(loginRequest),{headers})
