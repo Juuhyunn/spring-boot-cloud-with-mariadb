@@ -41,9 +41,10 @@ public class UserController implements CommonController<User, Long> {
         return ResponseEntity.ok(user);
     }
 
-
+    @GetMapping("/list")
     @Override
     public ResponseEntity<List<User>> findAll() {
+        System.out.println("전체 조회 :: 디비 조회한 애 : " + userRepository.findAll());
         return ResponseEntity.ok(userRepository.findAll());
     }
 
