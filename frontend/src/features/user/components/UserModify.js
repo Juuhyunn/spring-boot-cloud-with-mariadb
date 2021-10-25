@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import axios from 'axios';
 
 
 export function UserModify() {
-  const SERVER = 'http://localhost:8080'
   const history = useHistory()
   const sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
   const [join, setJoin] = useState({
@@ -24,16 +22,12 @@ export function UserModify() {
       [name] : value
     })
   }
-  const userJoin = joinRequest => axios.post(`${SERVER}/users`, JSON.stringify(joinRequest), {headers})
-  const headers = {
-    'Content-Type' : 'application/json',
-    'Authorization': 'JWT fefege..'
-}
+
   const handleSubmit = e => {
     e.preventDefault()
     const joinRequest = { ...join }
     alert(`수정 정보 : ${JSON.stringify(joinRequest)}`)
-    userJoin(joinRequest)
+    userModify(joinRequest)
     .then(res => {
       alert(`수정 성공 : ${res}`)
       history.push('/users/detail')

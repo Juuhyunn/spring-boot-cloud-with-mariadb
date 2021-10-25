@@ -1,13 +1,11 @@
-import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { UserListForm } from 'features/user/index';
 
 export function UserList() {
-  const SERVER = 'http://localhost:8080'
   const [list, setList] = useState([])
   
   const fetchList = () => {
-    axios.get(`${SERVER}/users/list`)
+    userFetchList()
     .then(res =>
       setList(res.data)
     )

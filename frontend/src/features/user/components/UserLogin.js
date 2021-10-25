@@ -4,22 +4,16 @@ import { useHistory } from 'react-router';
 
 export function UserLogin() {
   const history = useHistory()
-  const SERVER = 'http://localhost:8080'
   const [login, setLogin] = useState({})
   const {username, password} = login
   const handleChange = e => {
     const {value, name} = e.target
     setLogin({...login, [name]: value})
   }
-  const headers = {
-    'Content-Type' : 'application/json',
-    'Authorization': 'JWT fefege..'
-  }
   const handleClick = e => {
     e.preventDefault()
     const loginRequest = {username, password}
     alert('로그인 정보 : ' + JSON.stringify(loginRequest))
-    // axios.post(`http://localhost:8080/users/login`, JSON.stringify({username:'a', password:'b'}))
     userLogin(loginRequest)
     .then(res => {
       const user = res.data
@@ -40,7 +34,6 @@ export function UserLogin() {
       document.getElementById('password').value = ''
     })
   }
-  const userLogin = loginRequest => axios.post(`${SERVER}/users/login`, JSON.stringify(loginRequest),{headers})
   return (
     <div>
       <h1>사용자 로그인</h1>

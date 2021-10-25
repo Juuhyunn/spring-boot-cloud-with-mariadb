@@ -4,13 +4,8 @@ import { Link, useHistory } from 'react-router-dom';
 
 
 export function UserRemove() {
-  const SERVER = 'http://localhost:8080'
   const sessionUser = JSON.parse(localStorage.getItem('sessionUser'))
   const history = useHistory()
-  const headers = {
-    'Content-Type' : 'application/json',
-    'Authorization': 'JWT fefege..'
-  }
   const [password, setPassword] = useState('')
   const handleChange = e => {
     setPassword(e.target.value)
@@ -20,7 +15,7 @@ export function UserRemove() {
     const removeRequest = sessionUser
     if(sessionUser.password === password){
       alert(JSON.stringify(removeRequest.userId))
-      axios.delete(`${SERVER}/users/${sessionUser.userId}`, JSON.stringify(sessionUser.userId), {headers})
+      UserRemove(sessionUser.userId)
       .then(res => {
         console.log(res.data)
         localStorage.setItem('sessionUser', '')
