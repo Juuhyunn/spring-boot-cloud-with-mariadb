@@ -14,7 +14,6 @@ export function UserRemove() {
     e.preventDefault()
     const removeRequest = sessionUser
     if(sessionUser.password === password){
-      alert(JSON.stringify(removeRequest.userId))
       UserRemove(sessionUser.userId)
       .then(res => {
         console.log(res.data)

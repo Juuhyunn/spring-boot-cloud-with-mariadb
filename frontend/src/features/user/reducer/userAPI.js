@@ -17,5 +17,6 @@ export default {
     userFetchOne,
     userFetchList,
     userLogin,
+    userModify,
     userRemove
 }

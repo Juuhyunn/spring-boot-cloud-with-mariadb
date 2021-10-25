@@ -26,7 +26,6 @@ export function UserModify() {
   const handleSubmit = e => {
     e.preventDefault()
     const joinRequest = { ...join }
-    alert(`수정 정보 : ${JSON.stringify(joinRequest)}`)
     userModify(joinRequest)
     .then(res => {
       alert(`수정 성공 : ${res}`)

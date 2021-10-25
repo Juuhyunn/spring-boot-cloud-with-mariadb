@@ -6,7 +6,6 @@ export function UserDetail() {
     const [detail, setDetail] = useState({})
     const fetchOne = () => {
         const sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
-        // alert('사용자 아이디 : ' + sessionUser.userId)
         userFetchOne(sessionUser)
         .then(res => {
             alert(`회원 정보 조회 성공 : ${res.data}`)

@@ -13,7 +13,6 @@ export function UserLogin() {
   const handleClick = e => {
     e.preventDefault()
     const loginRequest = {username, password}
-    alert('로그인 정보 : ' + JSON.stringify(loginRequest))
     userLogin(loginRequest)
     .then(res => {
       const user = res.data
