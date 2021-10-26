@@ -1,5 +1,6 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
 import { userAPI } from 'features/user/index';
+import { act } from 'react-dom/test-utils';
 
 const userJoinPage = async(x) => {
     const res = await userAPI.userJoin(x)
@@ -26,3 +27,25 @@ const userRemovePage = async(x) => {
     return res.data
 }
 export default userSlice.reducer
+
+const userSlice = createSlice({
+    name: users,
+    initialState: {
+        userState: {},
+        type: '',
+        keyword: '',
+        params: {}
+    },
+    reducers: {},
+    extraReducers: {
+        [joinPage.fullfilled]: ( state, action ) => { state.userState = action.payload},
+        [detailPage.fullfilled]: ( state, {meta, payload} ) => { state.userState = payload},
+        [listPage.fullfilled]: ( state, {meta, payload} ) => { state.pageResult = payload},
+        [loginPage.fullfilled]: ( state, {meta, payload} ) => {
+            state.userState = payload
+            window.localStorage.setItem('sessionUser', JSON.stringify(payload))
+        },
+        [joinPage.fullfilled]: () => {},
+        [joinPage.fullfilled]: () => {}
+    }
+})
