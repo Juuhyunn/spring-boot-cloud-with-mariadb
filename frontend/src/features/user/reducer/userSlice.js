@@ -25,11 +25,4 @@ const userRemovePage = async(x) => {
     const res = await userAPI.userRemove(x)
     return res.data
 }
-export const joinPage = createAsyncThunk('users/join', userJoinPage)
-export const fetchOnePage = createAsyncThunk('users/one', userFetchOnePage)
-export const fetchListPage = createAsyncThunk('users/list', userFetchListPage)
-export const loginPage = createAsyncThunk('users/login', userLoginPage)
-export const modifyPage = createAsyncThunk('users/modify', userModifyPage)
-export const removePage = createAsyncThunk('users/remove', userRemovePage)
-
 export default userSlice.reducer
