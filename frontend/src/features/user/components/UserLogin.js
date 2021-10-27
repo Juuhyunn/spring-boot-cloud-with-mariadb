@@ -13,7 +13,7 @@ export function UserLogin() {
   const handleClick = e => {
     e.preventDefault()
     const loginRequest = {username, password}
-    userLogin(loginRequest)
+    UserLogin(loginRequest)
     .then(res => {
       const user = res.data
       if(user.userId != 0) {

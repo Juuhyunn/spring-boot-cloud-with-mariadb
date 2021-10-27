@@ -2,10 +2,10 @@ import React, { useEffect, useState } from 'react';
 import { UserListForm } from 'features/user/index';
 
 export function UserList() {
-  const [list, setList] = useState([])
+  const [list, setList] = useState([{}])
   
-  const fetchList = () => {
-    userFetchList()
+  const userList = () => {
+    userList()
     .then(res =>
       setList(res.data)
     )
@@ -13,7 +13,7 @@ export function UserList() {
   }
 
   useEffect(() => {
-    fetchList()
+    // userList()
   }, [])
   return (<>
     <div>

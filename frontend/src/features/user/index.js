@@ -1,5 +1,5 @@
 // user components
-export { UserAdd } from 'features/user/components/UserAdd'
+export { default as UserAdd } from 'features/user/components/UserAdd'
 export { UserDetail } from 'features/user/components/UserDetail'
 export { UserList } from 'features/user/components/UserList'
 export { UserLogin } from 'features/user/components/UserLogin'

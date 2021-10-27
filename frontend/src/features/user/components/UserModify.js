@@ -5,7 +5,7 @@ import { Link, useHistory } from 'react-router-dom';
 export function UserModify() {
   const history = useHistory()
   const sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
-  const [join, setJoin] = useState({
+  const [modify, setModify] = useState({
     userId: sessionUser.userId,
     username: sessionUser.username, 
     password: sessionUser.password, 
@@ -13,20 +13,20 @@ export function UserModify() {
     name: sessionUser.name, 
     regDate: sessionUser.regDate
   })
-  const { username, password, email, name } = join
+  const { username, password, email, name } = modify
   const handleChange = e => {
     e.preventDefault()
     const { value, name } = e.target
-    setJoin( {
-      ...join,
+    setModify( {
+      ...modify,
       [name] : value
     })
   }
 
   const handleSubmit = e => {
     e.preventDefault()
-    const joinRequest = { ...join }
-    userModify(joinRequest)
+    const modifyRequest = { ...modify }
+    UserModify(modifyRequest)
     .then(res => {
       alert(`수정 성공 : ${res}`)
       history.push('/users/detail')

@@ -3,10 +3,12 @@ import { Link, useHistory } from 'react-router-dom';
 
 export function UserDetail() {
     const history = useHistory()
-    const [detail, setDetail] = useState({})
-    const fetchOne = () => {
+    const [detail, setDetail] = useState({
+        userId:'', username:'', password:'', email:'', name:'', regDate: new Date().toLocaleDateString()
+    })
+    const userDetail = () => {
         const sessionUser = JSON.parse(localStorage.getItem('sessionUser'));
-        userFetchOne(sessionUser)
+        userDetail(sessionUser)
         .then(res => {
             alert(`회원 정보 조회 성공 : ${res.data}`)
             setDetail(res.data)
@@ -18,7 +20,7 @@ export function UserDetail() {
     }
     // useEffect는 들어오자마자 데이터가 없어도 실행하라는 뜻
     useEffect(() => {
-        fetchOne()
+        userDetail()
     }, []) 
     const logout = e => {
         e.preventDefault()
