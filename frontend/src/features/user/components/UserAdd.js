@@ -25,6 +25,7 @@ export default function UserAdd() {
     const handleSubmit = async(e) => {
         e.preventDefault()
         e.stopPropagation()
+        //캡처링(부모로 데이터 전달) 과 버블링(부모로부터 데이터 전달) 을 막기위함
         alert(`회원가입 ID 1: ${join.username}`)
         const json = {
             'username': join.username,
