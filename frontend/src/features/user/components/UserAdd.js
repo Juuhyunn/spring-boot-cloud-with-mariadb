@@ -3,11 +3,14 @@ import React, { useState, useCallback } from 'react';
 import { useHistory  } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { joinPage } from 'features/user/reducer/userSlice'
+import { useForm } from "react-hook-form";
+
 
 
 export default function UserAdd() {
     const history = useHistory()
     const dispatch = useDispatch()
+    const { register } = useForm();
     const [join, setJoin] = useState({
         username:'', password:'', email:'', name:'', regDate: new Date().toLocaleDateString()
     })
@@ -49,7 +52,7 @@ export default function UserAdd() {
             <li>
                 <label>
                     아이디 : <input type="text" id="username" name="username" value={username} onChange={handleChange}
-                    size="10" minlength="4" maxlength="15"/>
+                    size="10" minlength="4" maxlength="15" {...register('username', { required: true, maxLength: 30 })}/>
                 </label>
                 <small>4~15자리 이내의 영문과 숫자</small>
             </li>
