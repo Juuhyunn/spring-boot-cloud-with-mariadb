@@ -15,7 +15,7 @@ export default function UserAdd() {
     })
 
     const {username, password, email, name} = join
-    const handleChange = useCallback(()=> {
+    const handleChange = useCallback((e)=> {
         const { value, name } = e.target
         setJoin({
             ...join,
@@ -24,7 +24,6 @@ export default function UserAdd() {
     }, [join]) 
     
     const onSubmit = async () => {
-  
         await dispatch(joinPage( {
             'username': join.username,
             'password': join.password,
