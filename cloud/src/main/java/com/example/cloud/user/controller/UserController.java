@@ -38,7 +38,7 @@ public class UserController implements CommonController<User, Long> {
         System.out.println("디테일 :: 리액트에서 넘어온 정보 : " + id);
         User user = userService.findById(id).get();
         System.out.println("디테일 :: 디비 갔다온애 : " + user.toString());
-        return ResponseEntity.ok(user);
+        return ResponseEntity.ok(userRepository.getById(id));
     }
 
     @GetMapping("/list")
