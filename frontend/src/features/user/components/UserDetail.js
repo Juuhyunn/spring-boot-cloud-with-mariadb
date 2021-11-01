@@ -7,7 +7,6 @@ import { Logout } from 'features/user/index'
 
 export function UserDetail() {
     const detail = JSON.parse(localStorage.getItem('sessionUser'));
-    const dispatch = useDispatch()
     const history = useHistory()
     return (
         <div>

@@ -8,7 +8,6 @@ import { UserAdd, UserDetail, UserList, UserLogin, UserModify, UserRemove } from
 
 function App() {
   return (<>
-  <Home/>
   <Navigation/>
   <Switch>
     <Route exact path='/' component= { Home }/>

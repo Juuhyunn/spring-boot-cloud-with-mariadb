@@ -8,6 +8,6 @@ export const Logout = () => {
         e.preventDefault()
         e.stopPropagation()
         localStorage.clear(e)
-        history.push('/')
+        history.push('/home')
     }}> 로그아웃 </button>
 </>)}
