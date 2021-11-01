@@ -5,6 +5,7 @@ export { UserList } from 'features/user/components/UserList'
 export { UserLogin } from 'features/user/components/UserLogin'
 export { UserModify } from 'features/user/components/UserModify'
 export { UserRemove } from 'features/user/components/UserRemove'
+export { Logout } from 'features/user/components/Logout'
 export { default as UserListForm } from 'features/user/components/UserListForm'
 
 // user reducer

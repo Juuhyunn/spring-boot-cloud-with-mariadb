@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-import { detailPage, logout } from 'features/user/reducer/userSlice'
+import { detailPage } from 'features/user/reducer/userSlice'
 import { useHistory } from 'react-router';
+import { Logout } from 'features/user/index'
 
 
 export function UserDetail() {
@@ -42,7 +43,9 @@ export function UserDetail() {
             </li>
             <li>
                 <input type="button" value="회원정보수정" onClick={()=> history.push('/users/modify') }/>
-                <input type="button" value="로그아웃" onClick={dispatch(logout())}/>
+            </li>
+            <li>
+                <Logout/>
             </li>
 
         </ul>

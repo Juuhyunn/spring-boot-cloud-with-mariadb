@@ -34,7 +34,6 @@ export const modifyPage = createAsyncThunk('users/modify', userModifyPage)
 export const removePage = createAsyncThunk('users/remove', userRemovePage)
 export const logout = () => {
   window.localStorage.setItem('sessionUser', '')
-  
 }
 
 const userSlice = createSlice({

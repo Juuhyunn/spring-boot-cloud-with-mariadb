@@ -13,14 +13,12 @@ const UserListForm = ({list}) => {
         </tr>   
     </thead>
     <tbody>
-        {list.map((user) => (
-            <tr>
-                <td>{user.userId}</td>
-                <td>{user.username}</td>
-                <td>{user.name}</td>
-                <td>{user.email}</td>
-            </tr>
-        ))}
+    {list.map((user)=>(
+        <tr><td>{user.userId}</td>
+        <td>{user.username}</td>
+        <td>{user.name}</td>
+        <td>{user.email}</td></tr>
+    ))}
     </tbody>
     </table>
     </>)
