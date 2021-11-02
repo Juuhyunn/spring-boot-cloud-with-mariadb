@@ -14,7 +14,7 @@ export function UserRemove() {
     e.preventDefault()
     const removeRequest = sessionUser
     if(sessionUser.password === password){
-      UserRemove(sessionUser.userId)
+      UserRemove(removeRequest.userId)
       .then(res => {
         console.log(res.data)
         localStorage.setItem('sessionUser', '')

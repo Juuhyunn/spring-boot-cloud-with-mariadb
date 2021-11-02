@@ -31,8 +31,7 @@ export default function UserModify() {
             e.preventDefault()
         const modifyRequest = {...modify}
         alert(`회원수정 정보: ${JSON.stringify(modifyRequest)}`)
-        axios
-        .put(`http://localhost:8080/users`, JSON.stringify(modifyRequest),{headers})
+        axios.put(`http://localhost:8080/users`, JSON.stringify(modifyRequest),{headers})
         .then(res =>{
             alert(`회원 정보 수정 성공 ${res.data}`)
             localStorage.setItem('sessionUser', JSON.stringify(res.data))
