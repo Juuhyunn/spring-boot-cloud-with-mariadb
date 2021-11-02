@@ -9,6 +9,7 @@ import { UserAdd, UserDetail, UserList, UserLogin, UserModify, UserRemove } from
 function App() {
   return (<>
   <Navigation/>
+  <br/>
   <Switch>
     <Route exact path='/' component= { Home }/>
     <Redirect from='/home' to= { '/' }/>
