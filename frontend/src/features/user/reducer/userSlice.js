@@ -50,7 +50,9 @@ const userSlice = createSlice({
   extraReducers: {
     [joinPage.fulfilled]: ( state, action ) => { state.userState = action.payload },
     [detailPage.fulfilled]: ( state, {meta, payload} ) => { state.userState = payload },
-    [listPage.fulfilled]: ( state, {meta, payload} ) => { state.pageResult = payload },
+    [listPage.fulfilled]: ( state, {meta, payload} ) => { 
+      state.userState = payload
+    },
     [loginPage.fulfilled]: ( state, {meta, payload} ) => {
       state.userState = payload
         //window는 윈도우 브라우저 창을 말한다. (JSX)
