@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 
 
@@ -31,7 +31,11 @@ export function UserRemove() {
   return (
     <div>
       <h1>회원 탈퇴</h1>
-      <form method="DELETE">
+      <form method='DELETE' onSubmit={
+        useCallback(e => {
+
+        })
+      }>
           <ul>
           <li>
               <label>
