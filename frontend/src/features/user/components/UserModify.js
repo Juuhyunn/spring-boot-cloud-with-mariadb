@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useHistory  } from 'react-router-dom';
 import { modifyPage } from 'features/user/reducer/userSlice';
+import { Layout } from 'features/common';
+
 
 export default function UserModify() {
     const history = useHistory()
@@ -28,26 +29,7 @@ export default function UserModify() {
         'Content-Type' : 'application/json',
         'Authorization': 'JWT fefege..'
       }
-    
-    // const handleSubmit = useCallback(
-    //     e => {
-    //         e.preventDefault()
-    //     const modifyRequest = {...modify}
-    //     alert(`회원수정 정보: ${JSON.stringify(modifyRequest)}`)
-    //     axios.put(`http://localhost:8080/users`, JSON.stringify(modifyRequest),{headers})
-    //     .then(res =>{
-    //         alert(`회원 정보 수정 성공 ${res.data}`)
-    //         localStorage.setItem('sessionUser', JSON.stringify(res.data))
-    //         history.push("/users/detail")
-    //     })
-    //     .catch(err =>{
-    //         alert(`회원수정 실패 : ${err}`)
-    //     })
-    //     }
-    // )
-
-
-  return (
+  return (<Layout>
     <div>
          <h1>회원정보 수정</h1>
     <form onSubmit={useCallback(e=> {
@@ -93,6 +75,6 @@ export default function UserModify() {
 
         </ul>
     </form>
-    </div>
+    </div></Layout>
   );
 }

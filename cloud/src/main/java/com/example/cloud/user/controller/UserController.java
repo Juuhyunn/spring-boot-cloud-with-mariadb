@@ -48,6 +48,12 @@ public class UserController implements CommonController<User, Long> {
         return ResponseEntity.ok(userRepository.findAll());
     }
 
+    @GetMapping("/list/{page}")
+    public ResponseEntity<List<User>> getList(@PathVariable int page) {
+        System.out.println("::::::: PageNumber :::::::: "+page);
+        return ResponseEntity.ok(userRepository.findAll());
+    }
+
     @Override
     public ResponseEntity<User> getById(Long id) {
         return ResponseEntity.ok(userRepository.getById(id));

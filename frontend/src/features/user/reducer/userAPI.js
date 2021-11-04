@@ -7,7 +7,7 @@ const headers = {
 
 const userJoin = x => axios.post(`${SERVER}/users`, JSON.stringify(x), {headers})
 const userDetail = x => axios.get(`${SERVER}/users/${x.userId}`)
-const userList = () => axios.get(`${SERVER}/users/list`)
+const userList = x => axios.get(`${SERVER}/users/list/${x}`)
 const userLogin = x => axios.post(`${SERVER}/users/login`, JSON.stringify(x),{headers})
 const userModify = x => axios.put(`${SERVER}/users`, JSON.stringify(x),{headers})
 const userRemove = x => axios.delete(`${SERVER}/users/${x}`, JSON.stringify(x), {headers})

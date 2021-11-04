@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { joinPage } from 'features/user/reducer/userSlice'
 import { useForm } from "react-hook-form";
 import styled from 'styled-components'
+import { Layout } from 'features/common';
 
 export default function UserAdd() {
     const history = useHistory()
@@ -35,7 +36,7 @@ export default function UserAdd() {
         history.push('/users/login')
   }
 
-  return (
+  return (<Layout>
     <div>
          <h1>회원 가입</h1>
     <form method='POST' onSubmit={handleSubmit(onSubmit)}>
@@ -103,9 +104,10 @@ export default function UserAdd() {
         </ul>
         <input type="submit" value="회원가입"/> 
     </form>
-    </div>
+    </div></Layout>
   );
 }
 const Span = styled.span`
     color: red
 `
+

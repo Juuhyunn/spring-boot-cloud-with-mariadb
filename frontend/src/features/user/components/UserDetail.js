@@ -3,12 +3,14 @@ import { useDispatch } from 'react-redux';
 import { detailPage } from 'features/user/reducer/userSlice'
 import { useHistory } from 'react-router';
 import { Logout } from 'features/user/index'
+import { Layout } from 'features/common';
+
 
 
 export function UserDetail() {
     const detail = JSON.parse(localStorage.getItem('sessionUser'));
     const history = useHistory()
-    return (
+    return (<Layout>
         <div>
         <h1>회원정보</h1>
     
@@ -49,6 +51,6 @@ export function UserDetail() {
 
         </ul>
    
-    </div>
+    </div></Layout>
       );
 }

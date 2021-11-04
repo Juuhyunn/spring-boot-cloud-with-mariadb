@@ -1,8 +1,9 @@
-import axios from 'axios';
 import React, { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Link, useHistory } from 'react-router-dom';
 import { removePage } from '../reducer/userSlice';
+import { Layout } from 'features/common';
+
 
 
 export function UserRemove() {
@@ -11,7 +12,7 @@ export function UserRemove() {
   const dispatch = useDispatch()
   const [password, setPassword] = useState('')
   
-  return (
+  return (<Layout>
     <div>
       <h1>회원 탈퇴</h1>
       <form method='DELETE' onSubmit={
@@ -38,6 +39,6 @@ export function UserRemove() {
           <li><input type="button" value="탈퇴 취소" onClick={ e => history.push('/users/detail')}/></li>
           </ul>
       </form>
-    </div>
+    </div></Layout>
   );
 }

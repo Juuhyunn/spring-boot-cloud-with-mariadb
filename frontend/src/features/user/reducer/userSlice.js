@@ -9,8 +9,9 @@ const userDetailPage = async(x) => {
   const res = await userAPI.userDetail(x)
   return res.data
 }
-const userListPage = async() => {
-  const res = await userAPI.userList()
+const userListPage = async({page}) => {
+  alert('???')
+  const res = await userAPI.userList(page)
   return res.data
 }
 const userLoginPage = async(x) => {
@@ -42,6 +43,7 @@ const userSlice = createSlice({
     userState: {
       username:'', password:'', email:'', name:'', regDate: new Date().toLocaleDateString()
     },
+    usersState: {},
     type: '',
     keyword: '',
     params: {}
@@ -72,6 +74,7 @@ const userSlice = createSlice({
 
 })
 export const currentUserState = state => state.users.userState
+export const currentUsersState = state => state.users.usersState
 export const currentUserParam = state => state.users.param
 export default userSlice.reducer;
 

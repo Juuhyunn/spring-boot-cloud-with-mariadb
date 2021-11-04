@@ -5,9 +5,9 @@ import {
 } from "@reduxjs/toolkit";
 import logger from 'redux-logger'
 import counterReducer from 'features/counter/counterSlice';
-import userReducer from 'features/user/reducer/userSlice';
+import user from 'features/user/reducer/userSlice';
 
-const rootReducer = combineReducers({ userReducer })
+const rootReducer = combineReducers({ user })
 
 export const store = configureStore({
   reducer: rootReducer,
