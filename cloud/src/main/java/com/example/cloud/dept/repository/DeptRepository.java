@@ -13,9 +13,14 @@ import java.util.Optional;
 
 @Repository
 public interface DeptRepository extends JpaRepository<Dept, Long> {
-    @Query(value = "select dept_no deptNo, count(*) empCountPerDept, sum(sal) salSum " +
+    @Query(value = "select dept_no deptNo, count(*) empCountPerDept, sum(sal) salSum, (select dname from dept where dept.dept_no = emp.dept_no) deptName " +
             "from emp group by dept_no having count (*)>:count", nativeQuery = true)
     Optional<List<DeptInfo>> findEmployeesByDeptNo(@Param("count") int empCountPerDept);
-    @Query(value = "select dept_no deptNo, count(*) empCountPerDept from emp group by dept_no = (select count(*) from emp group by dept_no order by count(*) desc limit 1)", nativeQuery = true)
-    List<DeptInfo> findDept();
+    @Query(value = "select dept_no deptNo, count(*) empCountPerDept, " +
+            "(select dname from dept where dept.dept_no = emp.dept_no) deptName " +
+            "from emp " +
+            "group by dept_no " +
+            "having  dept_no = (select dept_no from emp group by dept_no order by count(*) desc limit 1)", nativeQuery = true)
+    List<DeptInfo> findMaxDept();
+
 }

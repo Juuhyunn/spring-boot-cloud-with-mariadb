@@ -4,4 +4,5 @@ public interface DeptInfo {
     Integer getDeptNo();
     Integer getEmpCountPerDept();
     Integer getSalSum();
+    String getDeptName();
 }

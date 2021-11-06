@@ -19,9 +19,9 @@ public class DeptController implements CommonController {
     public ResponseEntity<List<DeptInfo>> findDeptsByEmpCount(@PathVariable int count){
         return ResponseEntity.ok(deptRepository.findEmployeesByDeptNo(count).orElse(new ArrayList<>()));
     }
-    @GetMapping("/find-dept")
-    public ResponseEntity<List<DeptInfo>> findDept(){
-        return ResponseEntity.ok(deptRepository.findDept());
+    @GetMapping("/find-max-dept")
+    public ResponseEntity<List<DeptInfo>> findMaxDept(){
+        return ResponseEntity.ok(deptRepository.findMaxDept());
     }
 
     @Override
