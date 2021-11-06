@@ -1,14 +1,28 @@
 package com.example.cloud.dept.controller;
 
 import com.example.cloud.common.CommonController;
+import com.example.cloud.dept.domain.DeptInfo;
+import com.example.cloud.dept.repository.DeptRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@RestController
+@RestController @RequiredArgsConstructor @CrossOrigin("*") @RequestMapping("dept")
 public class DeptController implements CommonController {
+    private final DeptRepository deptRepository;
+
+    @GetMapping("/find-depts-by-emp-count/{count}")
+    public ResponseEntity<List<DeptInfo>> findDeptsByEmpCount(@PathVariable int count){
+        return ResponseEntity.ok(deptRepository.findEmployeesByDeptNo(count).orElse(new ArrayList<>()));
+    }
+    @GetMapping("/find-dept")
+    public ResponseEntity<List<DeptInfo>> findDept(){
+        return ResponseEntity.ok(deptRepository.findDept());
+    }
 
     @Override
     public ResponseEntity<List> findAll() {
